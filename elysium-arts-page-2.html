@@ -1,139 +1,186 @@
-<section class="page-shell">
-  <header class="site-topbar">
-    <div class="brand-block">
-      <div class="brand-mark">elysium<br>arts</div>
-      <div class="brand-copy">
-        <strong>Elysium Arts</strong>
-        <span>Official HDRP website & auxiliaries.</span>
-      </div>
-    </div>
-    <nav class="site-nav">
-      <a href="#hdrp">HDRP</a>
-      <a href="#modules">Modules</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="theme-btn" aria-label="Toggle theme">◐</button>
-  </header>
-
-  <main>
-    <section class="hero-grid">
-      <div class="hero-left">
-        <span class="eyebrow">HDRP TTRPG framework</span>
-        <h1>A system built to fit any world, any theme, and any style of play.</h1>
-        <p class="lead">HDRP begins as a story-first tabletop framework, then reveals its mechanics, then opens into three distinct sub-modules. It can also be adapted into your own homebrew setting, whether you want hard survival, casual adventure, grind-heavy combat, or deep social storytelling.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#modules">Explore HDRP</a>
-          <a class="btn secondary" href="#hdrp">See the structure</a>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elysium Arts - Modules</title>
+  <link rel="stylesheet" href="styles-3.css">
+  <style>
+    :root{--bg:#0f0d0f;--panel:#17141a;--panel2:#1e1a21;--border:#2c2631;--text:#f5eef7;--muted:#b9adbf;--accent:#d95cff;--accent2:#7e5cff;--line:#3a3240}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at top,#1a1420 0,#0f0d0f 45%,#09080a 100%);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6}
+    a{color:inherit}
+    .wrap{max-width:1180px;margin:0 auto;padding:24px}
+    .topbar,.footer{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}
+    .topbar{padding:10px 0 24px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+    .mark{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;font-weight:800;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .brand h1{font-size:1.05rem;margin:0 0 2px}
+    .brand p{margin:0;color:var(--muted);font-size:.9rem}
+    .nav{display:flex;gap:12px;flex-wrap:wrap}
+    .nav a{padding:10px 14px;border:1px solid var(--border);border-radius:999px;text-decoration:none;background:rgba(255,255,255,.02)}
+    .hero{padding:58px 0 24px;display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:start}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(217,92,255,.35);background:rgba(217,92,255,.12);color:#f1c8ff;border-radius:999px;font-size:.85rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .hero h2{font-family:Georgia,serif;font-size:clamp(2.8rem,6vw,5.4rem);line-height:.95;margin:16px 0 14px;max-width:11ch}
+    .lead{color:var(--muted);max-width:760px;font-size:1.06rem}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:999px;text-decoration:none;font-weight:700;border:1px solid var(--border)}
+    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-color:transparent}
+    .btn.secondary{background:rgba(255,255,255,.03)}
+    .stack{display:grid;gap:16px}
+    .card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--border);border-radius:24px;padding:22px;box-shadow:0 20px 50px rgba(0,0,0,.22)}
+    .card h3,.section h3{font-family:Georgia,serif;margin:0 0 10px}
+    .card p,.section p,.card li{color:var(--muted)}
+    .mini-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .pill{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--border);font-size:.9rem}
+    .section{padding:26px 0}
+    .section-head{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-bottom:18px}
+    .section-head h2{font-family:Georgia,serif;font-size:clamp(1.8rem,3vw,3rem);margin:0}
+    .section-head p{max-width:760px;color:var(--muted);margin:0}
+    .grid-2,.grid-3{display:grid;gap:18px}
+    .grid-2{grid-template-columns:1fr 1fr}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .feature,.module,.info{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:22px;padding:22px}
+    .num{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:999px;background:rgba(217,92,255,.14);color:#f1c8ff;font-weight:800}
+    .module .tag{display:inline-block;margin-bottom:12px;padding:7px 10px;border-radius:999px;background:rgba(126,92,255,.16);color:#d8cbff;font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    ul{margin:14px 0 0;padding-left:20px}
+    li{margin-bottom:10px}
+    .banner{border-radius:26px;padding:24px;background:linear-gradient(135deg,rgba(217,92,255,.12),rgba(126,92,255,.08));border:1px solid rgba(217,92,255,.22)}
+    .footer{padding:24px 0 8px;border-top:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:.95rem}
+    .footer a{text-decoration:none}
+    @media (max-width: 920px){.hero,.grid-2,.grid-3{grid-template-columns:1fr}.section-head,.topbar,.footer{align-items:flex-start}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <a class="brand" href="/index.html">
+        <div class="mark">EA</div>
+        <div>
+          <h1>Elysium Arts</h1>
+          <p>HDRP modules and worldbuilding</p>
         </div>
-      </div>
-      <aside class="hero-right">
-        <article>
-          <h2>What this site is for</h2>
-          <p>Introduce the system, document its structure, present the three modules, and later host devlogs, OSTs, commissions, and campaign offerings.</p>
-        </article>
-        <article>
-          <h2>Current focus</h2>
-          <div class="chips"><span>Story process</span><span>Mechanics</span><span>Three modules</span><span>Homebrew support</span></div>
-        </article>
-        <article>
-          <h2>Brand details</h2>
-          <p>Elysium Arts uses a dramatic red-and-white mark, a clean fantasy presentation, and an editorial layout that can grow into a larger publishing platform later.</p>
-        </article>
-      </aside>
-    </section>
+      </a>
+      <nav class="nav">
+        <a href="/index.html">Home</a>
+        <a href="#modules">Modules</a>
+        <a href="#world">World</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-    <section id="hdrp" class="section-block split-block">
-      <div class="section-heading">
-        <h2>What HDRP is</h2>
-        <p>HDRP is your core TTRPG framework: flexible, modular, and built so the same structure can support very different worlds without losing identity.</p>
-      </div>
-      <div class="split-grid">
-        <div class="panel">
-          <p>First, the player learns the story and setting logic. Then the site explains the mechanics. After that, it introduces the three sub-modules and the larger promise: HDRP can also become the basis for an entirely original setting.</p>
+    <main>
+      <section class="hero">
+        <div>
+          <span class="eyebrow">Modules page</span>
+          <h2>Three settings, one framework.</h2>
+          <p class="lead">This page presents the HDRP module lineup in a cleaner, more visual layout. Each module gets a distinct card, while the page keeps the tone dark, elegant, and easy to scan.</p>
+          <div class="actions">
+            <a class="btn primary" href="#modules">View modules</a>
+            <a class="btn secondary" href="/index.html">Back to home</a>
+          </div>
         </div>
-        <div class="panel accent">
-          <span class="num">01</span>
-          <h3>Flexible by design</h3>
-          <p>The system is meant to work across different tones and campaign styles, from brutal survival to casual adventures and highly customized roleplay-heavy worlds.</p>
+        <aside class="stack">
+          <article class="card">
+            <h3>What this page does</h3>
+            <p>It introduces the three worlds, gives each one a visual identity, and leaves space for future lore pages, downloads, and updates.</p>
+          </article>
+          <article class="card">
+            <h3>Page goal</h3>
+            <p>Make the project feel like a real game or publishing brand instead of a plain text document.</p>
+            <div class="mini-row"><span class="pill">Dark UI</span><span class="pill">Editorial layout</span><span class="pill">Responsive</span></div>
+          </article>
+        </aside>
+      </section>
+
+      <section id="modules" class="section">
+        <div class="section-head">
+          <div>
+            <h2>The modules</h2>
+            <p>Each module is summarized with a short identity statement and a few practical notes about what it is meant to support.</p>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="section-block process-block">
-      <div class="section-heading narrow">
-        <h2>How the homepage should read</h2>
-        <p>We’ll keep the flow very intentional so visitors understand the project quickly and keep moving deeper into the system.</p>
-      </div>
-      <div class="process-grid">
-        <article><span class="step">1</span><h3>Story process</h3><p>Open with the kind of experience HDRP creates, so the first impression is emotional and imaginative rather than technical.</p></article>
-        <article><span class="step">2</span><h3>Rules and mechanics</h3><p>Show that the structure has a real mechanical backbone, customization depth, and room for different play styles.</p></article>
-        <article><span class="step">3</span><h3>Modules and adaptability</h3><p>Introduce HOU, WOM, and ECR, then remind readers that HDRP can also support their own setting or homebrew world.</p></article>
-      </div>
-    </section>
-
-    <section id="modules" class="section-block modules-block">
-      <div class="section-heading">
-        <h2>The three modules</h2>
-        <p>Each module gets its own small section with a title, a short descriptor, a summary paragraph, and a bullet list showing vibe and possibilities.</p>
-      </div>
-      <div class="module-grid">
-        <article class="module-card">
-          <span class="tag">HOU</span>
-          <h3>Heart of Umbra</h3>
-          <p>A fantasy setting shaped by mystery, lore, and the tension between wonder and danger.</p>
-          <ul>
-            <li>High fantasy atmosphere with strong world identity.</li>
-            <li>Good for epic quests, faction drama, and magical exploration.</li>
-            <li>Supports custom heroes, villains, and kingdoms inside the setting.</li>
-          </ul>
-        </article>
-        <article class="module-card">
-          <span class="tag">WOM</span>
-          <h3>World of Madness</h3>
-          <p>A sci-fi leaning world built for strange systems, pressure, and otherworldly conflict.</p>
-          <ul>
-            <li>Blue-toned identity with a more surreal, human-made feel.</li>
-            <li>Works well for strange technology, exploration, and unstable environments.</li>
-            <li>Flexible enough for factions, missions, and experimental play.</li>
-          </ul>
-        </article>
-        <article class="module-card">
-          <span class="tag">ECR</span>
-          <h3>Emaruvian Crusade Retold</h3>
-          <p>A crusade-driven setting with apocalyptic pressure, conviction, and large-scale struggle.</p>
-          <ul>
-            <li>Best for intense conflict, holy war themes, and ideological tension.</li>
-            <li>Supports grand campaigns and faction-heavy storytelling.</li>
-            <li>Good home for heroic sacrifice, duty, and end-of-era stakes.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-block world-block">
-      <div class="section-heading">
-        <h2>Your own world</h2>
-        <p>HDRP is not limited to the three modules. It can be converted into an original setting or adapted to a homebrew world with your own heroes, villains, factions, tone, and campaign goals.</p>
-      </div>
-      <div class="world-grid">
-        <div class="panel">
-          <ul class="checklist">
-            <li>Any world theme, from survival to social roleplay.</li>
-            <li>Any pace, from casual to grindy combat loops.</li>
-            <li>Any level of customization, from light tweaks to full conversion.</li>
-          </ul>
+        <div class="grid-3">
+          <article class="module">
+            <span class="tag">HOU</span>
+            <h3>Heart of Umbra</h3>
+            <p>A fantasy world built around mystery, lore, and danger beneath a beautiful surface.</p>
+            <ul>
+              <li>Best for epic fantasy campaigns.</li>
+              <li>Strong focus on factions and exploration.</li>
+              <li>Works well for story-heavy adventures.</li>
+            </ul>
+          </article>
+          <article class="module">
+            <span class="tag">WOM</span>
+            <h3>World of Madness</h3>
+            <p>A strange sci-fi leaning setting with pressure, instability, and experimental energy.</p>
+            <ul>
+              <li>Good for surreal environments.</li>
+              <li>Supports missions and investigation.</li>
+              <li>Built for unusual technology and conflict.</li>
+            </ul>
+          </article>
+          <article class="module">
+            <span class="tag">ECR</span>
+            <h3>Emaruvian Crusade Retold</h3>
+            <p>A crusade-driven setting with high stakes, ideology, and apocalyptic momentum.</p>
+            <ul>
+              <li>Ideal for war-heavy storytelling.</li>
+              <li>Focuses on duty, sacrifice, and tension.</li>
+              <li>Great for large-scale campaigns.</li>
+            </ul>
+          </article>
         </div>
-        <div class="panel contact-panel" id="contact">
-          <h3>Next steps on the site</h3>
-          <p>Later we can add devlogs, an official news channel, commissions, OST pages, social links, and campaign hosting information.</p>
-          <a class="btn primary" href="mailto:elysium.arts.official@gmail.com">elysium.arts.official@gmail.com</a>
-        </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer class="site-footer">
-    <p>Built for Elysium Arts using your logo and the HDRP structure you described.</p>
-    <p>Ready to move into WordPress pages next.</p>
-  </footer>
-</section>
+      <section id="world" class="section">
+        <div class="section-head">
+          <div>
+            <h2>Flexible by design</h2>
+            <p>HDRP can also be adapted into a completely original world, not just the three named modules.</p>
+          </div>
+        </div>
+        <div class="grid-2">
+          <article class="feature">
+            <span class="num">01</span>
+            <h3>Homebrew support</h3>
+            <p>You can use HDRP as a base for your own custom setting, heroes, villains, factions, and campaign tone.</p>
+          </article>
+          <article class="feature">
+            <span class="num">02</span>
+            <h3>Any pace</h3>
+            <p>The framework is meant to support casual, grindy, tactical, or story-first play without losing its identity.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="banner">
+          <h3 style="font-family:Georgia,serif;margin-top:0">What comes next</h3>
+          <p>Later this page can expand into devlogs, OSTs, commissions, news posts, downloads, and campaign resources.</p>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="section-head">
+          <div>
+            <h2>Contact</h2>
+            <p>Keep the email visible for commissions or project inquiries.</p>
+          </div>
+        </div>
+        <article class="info">
+          <p style="margin-top:0">Email: <a href="mailto:elysium.arts.official@gmail.com">elysium.arts.official@gmail.com</a></p>
+          <p style="margin-bottom:0">Use this page as the main “modules” landing page, while the homepage stays focused on the overview.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Built for Elysium Arts.</p>
+      <p><a href="/index.html">Return home</a></p>
+    </footer>
+  </div>
+</body>
+</html>
